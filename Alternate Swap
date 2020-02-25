@@ -1,0 +1,21 @@
+ public void split(ListNode head){
+        
+        ListNode cur=head; //cur at 1
+        headA=cur;
+        headB=cur.next;
+        
+        while(cur!=null && cur.next!=null){               //atleast 2 nodes to start
+           ListNode temp=cur.next;                        //temprory node for 2nd list
+           cur.next=temp.next;                            //using temporary to skip one Node(setting)
+          
+           if(cur.next!=null && cur.next.next!=null){     // if nodes for 2nd list there
+               temp.next=cur.next.next;                   //setting 2nd->4th
+           }
+           else{
+               temp.next=null;                            //2nd was only last;
+               return;
+           }
+           cur=cur.next;                                  // jump of 2
+        }
+       
+    }
